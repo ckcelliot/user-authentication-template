@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000435;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #000435;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2, a {
+            color: #FC6A03;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #0e2433;
+        }
+
+        input[type="submit"] {
+            background-color: #FC6A03;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            background-color: #FC6A03;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="message" th:if="${param.error}">
+        Invalid Username or Password!
+    </div>
+
+    <h2>Login Page</h2>
+    <form th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="fullname">Email:</label>
+            <input type="email" id="fullname" name="fullname" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <input type="submit" value="Login">
+    </form>
+
+</div>
+</body>
+</html>
